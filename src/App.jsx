@@ -90,9 +90,9 @@ function Footer({ setPage }) {
         <div className="footer-col">
           <h4>Contact</h4>
           <ul className="footer-contact">
-            <li><i className="ti ti-phone"></i> 07073405110</li>
-            <li><i className="ti ti-mail"></i> info@handypros.com</li>
-            <li><i className="ti ti-map-pin"></i> Floor 8b, Sapetro Towers, 1, Adeola Odeku street, Victoria Island,Lagos</li>
+            <li>📞 666 888 0000</li>
+            <li>✉️ needhelp@company.com</li>
+            <li>📍 80 Broklyn Golden Street Line, New York, USA</li>
           </ul>
         </div>
         <div className="footer-col">
@@ -285,7 +285,7 @@ function ServicesPage({ setPage }) {
             <div className="hours-grid">
               {days.map((d) => (
                 <div className="hours-item" key={d}>
-                  <div className="day-icon"><i className="ti ti-calendar"></i></div>
+                  <div className="day-icon">📅</div>
                   <strong>{d}</strong>
                   <span>9AM - 8PM</span>
                 </div>
@@ -312,16 +312,118 @@ function ServicesPage({ setPage }) {
 
 // ─── PORTFOLIO PAGE ───────────────────────────────────────
 function PortfolioPage({ setPage }) {
+  const recentProjects = [
+    { img: "mixing-2.png", title: "Urban Rhythm Sessions", subtitle: "Live Audio Mix" },
+    { img: "lagos-lens.png", title: "The Lagos Lens", subtitle: "Mini Documentary Series" },
+    { img: "midnight-verse.png", title: "Midnight Verse", subtitle: "Poetry Podcast Recording" },
+    { img: "scene48.png", title: "Scene 48", subtitle: "Short Film Production" },
+    { img: "rehearsal-2.png", title: "Rehearsal Room Chronicles", subtitle: "Band Crew Prep" },
+    { img: "real-faces.png", title: "Real Faces", subtitle: "Visual Documentary for Change" },
+  ];
+
+  const featuredWorks = [
+    { img: "vibetalks.png", title: "VibeTalks", subtitle: "Africa's Fastest Growing Podcast" },
+    { img: "24hr-album.png", title: "The 24-Hour Album", subtitle: "Live Audio Challenge" },
+    { img: "echo-chamber.png", title: "Echo Chamber", subtitle: "Experimental Audio Lab" },
+    { img: "soundscape.png", title: "SoundScape", subtitle: "Immersive Audio" },
+  ];
+
+  const tracks = [
+    { num: 1, title: "Joeboy Vs. ODUMODUBLVCK (Body & Soul Podcast)", artist: "Joeboy - Body & Soul (Podcast)", duration: "47:23" },
+    { num: 2, title: "S2: EP3 - A Doze of Foza", artist: "Osikoya Speaks", duration: "1:10:53" },
+    { num: 3, title: "Episode 24: Detty December is coming!", artist: "I Moved Back Podcast", duration: "1:04:46" },
+    { num: 4, title: "Episode 22: Lagos has been hell for us lately!", artist: "I Moved Back Podcast", duration: "50:52" },
+  ];
+
+  const galleryImages = [
+    "vibetalks.png", "mixing-2.png", "mixing.png",
+    "rehearsal-2.png", "rehearsal.png", "podcast.png",
+  ];
+
   return (
     <div style={{ paddingTop: "73px" }}>
       <div className="page-banner">
         <div className="page-banner-bg" />
-        <h1>Our Portfolio</h1>
+        <h1>Portfolio</h1>
       </div>
-      <div className="section" style={{ textAlign: "center" }}>
-        <h2 className="section-title">Coming Soon</h2>
-        <p style={{ color: "var(--text-muted)", fontSize: "16px" }}>Our portfolio is being curated. Check back soon!</p>
+
+      {/* Recent Projects */}
+      <div className="section">
+        <h2 className="section-title">Recent Projects</h2>
+        <div className="portfolio-grid">
+          {recentProjects.map((p) => (
+            <div className="portfolio-card" key={p.title}>
+              <img src={`/images/${p.img}`} alt={p.title} />
+              <div className="portfolio-card-body">
+                <h4>{p.title}</h4>
+                <p>{p.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* Featured Works */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">Featured Works</h2>
+        <div className="featured-scroll">
+          {featuredWorks.map((f) => (
+            <div className="featured-card" key={f.title}>
+              <img src={`/images/${f.img}`} alt={f.title} />
+              <div className="featured-card-body">
+                <h4>{f.title}</h4>
+                <p>{f.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Audio Links */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">Audio Links</h2>
+        <div className="audio-player">
+          <div className="audio-player-header">
+            <img src="/images/podcast.png" alt="Podcast cover" className="audio-cover" />
+            <div className="audio-info">
+              <h3>Recently Recorded at Handy Pros</h3>
+              <span className="audio-preview-tag">Preview</span>
+              <p>⊕ Save on Spotify</p>
+            </div>
+            <div className="audio-controls">
+              <span>⏮</span>
+              <span>⏭</span>
+              <span>•••</span>
+              <button className="play-btn">▶</button>
+            </div>
+          </div>
+          <div className="track-list">
+            {tracks.map((t) => (
+              <div className="track-item" key={t.num}>
+                <span className="track-num">{t.num}</span>
+                <div className="track-info">
+                  <strong>{t.title}</strong>
+                  <span>{t.artist}</span>
+                </div>
+                <span className="track-duration">{t.duration}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Instagram Gallery */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">Instagram Gallery</h2>
+        <div className="insta-grid">
+          {galleryImages.map((img, i) => (
+            <div className="insta-item" key={i}>
+              <img src={`/images/${img}`} alt={`Gallery ${i + 1}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+
       <Footer setPage={setPage} />
     </div>
   );
@@ -360,21 +462,15 @@ function ContactPage({ setPage }) {
 
           <div className="contact-info">
             <div className="contact-info-item">
-              <span className="contact-info-icon"><i className="ti ti-map-pin"></i></span>
-              <div><strong>Studio Location:</strong><span style={{display: "block"}}>Floor 8b, Sapetro Towers,</span> 
-                                                    <span style={{display: "block"}}>1, Adeola Odeku street, </span>
-                                                    <span style={{display: "block"}}>Victoria Island, Lagos</span></div>
+              <span className="contact-info-icon">📍</span>
+              <div><strong>Studio Location:</strong><span>123 Sound Lane, Lekki Phase 1, Lagos, Nigeria</span></div>
             </div>
             <div className="contact-info-item">
-              <span className="contact-info-icon"><i className="ti ti-phone"></i></span>
-              <div><strong>Phone:</strong><span>+234 707 340 5110</span></div>
+              <span className="contact-info-icon">📞</span>
+              <div><strong>Phone:</strong><span>+234 800 123 4567</span></div>
             </div>
             <div className="contact-info-item">
-              <span className="contact-info-icon"><i className="ti ti-brand-whatsapp"></i></span>
-                <div> <strong>WhatsApp:</strong><span>+234 815 939 3821</span></div>
-            </div>
-            <div className="contact-info-item">
-              <span className="contact-info-icon"><i className="ti ti-mail"></i></span>
+              <span className="contact-info-icon">✉️</span>
               <div><strong>Email:</strong><span>contact@handyprosstudio.com</span></div>
             </div>
             <div className="working-hours">
