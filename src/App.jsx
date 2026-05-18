@@ -116,17 +116,252 @@ function Footer({ setPage }) {
 
 // ─── HOME PAGE ────────────────────────────────────────────
 function HomePage({ setPage }) {
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const previousWorks = [
+    { img: "vibetalks.png", title: '"Voices of the Streets"', subtitle: "A Weekly Social Commentary Podcast" },
+    { img: "echo-chamber.png", title: '"Echoes in Silence"', subtitle: "Acoustic Sessions by Timi Jay" },
+    { img: "rehearsal-2.png", title: '"Unplugged Moments"', subtitle: "Acoustic Rehearsal Recordings" },
+    { img: "24hr-album.png", title: '"Live at Handy Pros"', subtitle: "Mini-Concert Sessions" },
+  ];
+
+  const services = [
+    { img: "podcast.png", icon: "ti-microphone", title: "Recording", desc: "Capture pristine sound and flawless instrumentals for music, voice-over, and podcasts." },
+    { img: "rehearsal.png", icon: "ti-music", title: "Rehearsal Room", desc: "Get in sync with your band or practice your set in acoustically optimised spaces." },
+    { img: "video.png", icon: "ti-video", title: "Video Editing Bay", desc: "Edit, color, and start sharing visuals with access to top tools for YouTube, and content creators." },
+    { img: "mixing.png", icon: "ti-microphone", title: "Recording", desc: "Capture pristine sound and flawless instrumentals for music, voice-over, and podcasts." },
+    { img: "rehearsal-2.png", icon: "ti-music", title: "Rehearsal Room", desc: "Get in sync with your band or practice your set in acoustically optimised spaces." },
+    { img: "creative-workspace.png", icon: "ti-video", title: "Video Editing Bay", desc: "Edit, color, and start sharing visuals with access to top tools for YouTube, and content creators." },
+  ];
+
+  const partners = [
+    "logo-pulse.png", "logo-spotify.png", "logo-iroko.png",
+    "logo-mavin.png", "logo-trace.png", "logo-chocolatecity.png",
+    "logo-netflix.png", "logo-applemusic.png", "logo-youtube.png",
+  ];
+
+  const testimonials = [
+    { stars: "★★★★★", text: "I recorded my debut EP here and the experience was seamless. The sound engineers really knew their stuff and made me feel at home. The energy was just right.", name: "–Dami K.", role: "Afrobeat Artist" },
+    { stars: "★★★★★", text: "Booked a session to shoot a promotional video. The gear, lighting setup, and editing team were top-notch. They brought my vision to life effortlessly.", name: "–Aisha Bello", role: "Brand Influencer" },
+    { stars: "★★★★★", text: "The podcast suite was incredible. Clean sound, great equipment and the team was super helpful throughout the entire session.", name: "–Femi O.", role: "Podcast Host" },
+  ];
+
+  const promises = [
+    "We deliver professional-grade equipment and production facilities to bring your creative visions to life.",
+    "From booking to delivery, we value your time and ensure a smooth, punctual experience across all our services.",
+    "Our experienced engineers, producers, and technicians are here to guide, support, and elevate your project at every stage.",
+    "Your ideas and work stay protected. We prioritise your privacy and provide a secure, distraction-free environment.",
+    "Whether it's a quick vocal take or a full video shoot, we adapt our space and support to accommodate your needs.",
+  ];
+
+  const tracks = [
+    { num: 1, title: "Joeboy Vs. ODUMODUBLVCK (Body & Soul Podcast)", artist: "Joeboy - Body & Soul (Podcast)", duration: "47:23" },
+    { num: 2, title: "S2: EP3 - A Doze of Foza", artist: "Osikoya Speaks", duration: "1:10:53" },
+    { num: 3, title: "Episode 24: Detty December is coming!", artist: "I Moved Back Podcast", duration: "1:04:46" },
+    { num: 4, title: "Episode 22: Lagos has been hell for us lately!", artist: "I Moved Back Podcast", duration: "50:52" },
+  ];
+
+  const faqs = [
+    { q: "How do I book a session?", a: "You can easily book a session through our website by selecting your preferred service, date, and time. You'll receive a confirmation email once your booking is complete." },
+    { q: "What are your payment options?", a: "We accept bank transfers, card payments, and popular mobile payment options. A deposit is required to confirm your booking." },
+    { q: "Can I reschedule my appointment?", a: "Yes! You can reschedule up to 24 hours before your session at no extra charge. Contact us via email or phone to make changes." },
+    { q: "What is your cancellation policy?", a: "Cancellations made 48+ hours in advance receive a full refund. Cancellations within 24 hours may forfeit the deposit." },
+    { q: "What's included in the studio rental?", a: "All studio rentals include access to our equipment, an on-site engineer, and complimentary Wi-Fi. Additional add-ons can be arranged during booking." },
+  ];
+
+  const [openFaq, setOpenFaq] = useState(null);
+
   return (
-    <div className="hero">
-      <div className="hero-bg" />
-      <div className="hero-content">
-        <h1>Handy Pros Studio</h1>
-        <p>Podcasting, Music, Video, and Rehearsals</p>
-        <div className="hero-btns">
-          <button className="btn-primary" onClick={() => setPage("services")}>Our Rate</button>
-          <button className="btn-outline" onClick={() => setPage("contact")}>Contact Us</button>
+    <div>
+      {/* HERO */}
+      <div className="hero">
+        <div className="hero-bg" />
+        <div className="hero-content">
+          <h1>Handy Pros Studio</h1>
+          <p>Podcasting, Music, Video, and Rehearsals</p>
+          <div className="hero-btns">
+            <button className="btn-primary" onClick={() => setPage("services")}>Our Rate</button>
+            <button className="btn-outline" onClick={() => setPage("contact")}>Contact Us</button>
+          </div>
         </div>
       </div>
+
+      {/* PREVIOUS WORKS */}
+      <div className="section">
+        <h2 className="section-title">Our Previous Works</h2>
+        <div className="prev-works-grid">
+          {previousWorks.map((w) => (
+            <div className="prev-work-card" key={w.title}>
+              <div className="prev-work-img">
+                <img src={`/images/${w.img}`} alt={w.title} />
+                <div className="play-overlay"><button className="play-btn">▶</button></div>
+              </div>
+              <div className="prev-work-body">
+                <h4>{w.title}</h4>
+                <p>{w.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* AUDIO LINKS */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">Audio Links</h2>
+        <div className="audio-player">
+          <div className="audio-player-header">
+            <img src="/images/podcast.png" alt="Podcast cover" className="audio-cover" />
+            <div className="audio-info">
+              <h3>Recently Recorded at Handy Pros</h3>
+              <span className="audio-preview-tag">Preview</span>
+              <p>⊕ Save on Spotify</p>
+            </div>
+            <div className="audio-controls">
+              <span>⏮</span><span>⏭</span><span>•••</span>
+              <button className="play-btn">▶</button>
+            </div>
+          </div>
+          <div className="track-list">
+            {tracks.map((t) => (
+              <div className="track-item" key={t.num}>
+                <span className="track-num">{t.num}</span>
+                <div className="track-info">
+                  <strong>{t.title}</strong>
+                  <span>{t.artist}</span>
+                </div>
+                <span className="track-duration">{t.duration}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* OUR SERVICES */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">Our Services</h2>
+        <div className="services-grid">
+          {services.map((s, i) => (
+            <div className="service-card" key={i}>
+              <img src={`/images/${s.img}`} alt={s.title} />
+              <div className="service-card-body">
+                <h3><i className={`ti ${s.icon}`} style={{ marginRight: "8px" }}></i>{s.title}</h3>
+                <p>{s.desc}</p>
+                <button className="btn-primary" onClick={() => setPage("book")}>Book Now</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CREATIVE JOURNEY CTA */}
+      <div className="cta-banner">
+        <div className="cta-banner-bg" />
+        <div className="cta-banner-content">
+          <h2>Your Creative Journey Starts Here</h2>
+          <p>World-class spaces for music, podcasts, videos, and rehearsals — built to elevate your creativity.</p>
+          <button className="btn-primary" onClick={() => setPage("book")}>Book a Session</button>
+        </div>
+      </div>
+
+      {/* CLIENTS/PARTNERS */}
+      <div className="section">
+        <h2 className="section-title">Few of Our Clients/Partners</h2>
+        <div className="partners-grid">
+          {partners.map((p) => (
+            <div className="partner-card" key={p}>
+              <img src={`/images/${p}`} alt={p} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* TESTIMONIALS */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">What Our Clients Say</h2>
+        <div className="testimonial-carousel">
+          <button className="carousel-btn left" onClick={() => setActiveTestimonial((activeTestimonial - 1 + testimonials.length) % testimonials.length)}>‹</button>
+          <div className="testimonial-card" style={{ maxWidth: "700px", margin: "0 auto" }}>
+            <div className="stars">{testimonials[activeTestimonial].stars}</div>
+            <p>"{testimonials[activeTestimonial].text}"</p>
+            <div className="testimonial-author">
+              <strong>{testimonials[activeTestimonial].name}</strong>
+              <span>{testimonials[activeTestimonial].role}</span>
+            </div>
+          </div>
+          <button className="carousel-btn right" onClick={() => setActiveTestimonial((activeTestimonial + 1) % testimonials.length)}>›</button>
+        </div>
+      </div>
+
+      {/* OUR PROMISES */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <div className="promises-grid">
+          <div className="promises-content">
+            <h2 className="section-title" style={{ textAlign: "left" }}>Our Promises</h2>
+            <p style={{ color: "var(--text-muted)", marginBottom: "24px", fontSize: "14px" }}>What We Stand For — Excellence. Every Step of the Way.</p>
+            <ul className="promises-list">
+              {promises.map((p, i) => (
+                <li key={i}><i className="ti ti-circle-check" style={{ color: "var(--red)", marginRight: "10px" }}></i>{p}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="promises-img">
+            <img src="/images/about-story.png" alt="Studio promises" />
+          </div>
+        </div>
+      </div>
+
+      {/* STEP INTO SPOTLIGHT */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <div className="spotlight-grid">
+          <img src="/images/services-hours.png" alt="Studio spotlight" className="spotlight-img" />
+          <div className="spotlight-content">
+            <h2>Step Into Your Spotlight – Where Every Session Sparks Creativity.</h2>
+            <p style={{ color: "var(--text-muted)", margin: "16px 0 24px", fontSize: "15px" }}>Whether you're recording a podcast, mixing your next hit, or producing a video — our studios are built to capture your voice, and your story.</p>
+            <div className="spotlight-features">
+              <div className="spotlight-feature">
+                <i className="ti ti-microphone" style={{ color: "var(--red)", fontSize: "24px", marginBottom: "8px", display: "block" }}></i>
+                <strong>Studio-Grade Audio Clarity</strong>
+                <p style={{ color: "var(--text-muted)", fontSize: "13px", marginTop: "4px" }}>Top-notch microphones, soundproofing, and flexible bookings.</p>
+              </div>
+              <div className="spotlight-feature">
+                <i className="ti ti-video" style={{ color: "var(--red)", fontSize: "24px", marginBottom: "8px", display: "block" }}></i>
+                <strong>Cinematic Video Spaces</strong>
+                <p style={{ color: "var(--text-muted)", fontSize: "13px", marginTop: "4px" }}>Professional backdrops, lighting, and editing suites.</p>
+              </div>
+            </div>
+            <button className="btn-primary" style={{ marginTop: "24px" }} onClick={() => setPage("book")}>Book a Session</button>
+          </div>
+        </div>
+      </div>
+
+      {/* ABOUT */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">About Handy Pros Studio</h2>
+        <div className="home-about-grid">
+          <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: "1.8" }}>
+            Handy Pros is redefining access to professional creative spaces for a new generation of storytellers, artists, and creators. Our platform connects you with studio spaces that are built for those who imagine big. From the recording booth to the editing suite, every corner of Handy Pros is engineered to help you create — on your terms, at your pace. We're more than a studio. We're a creative community. We're the launchpad for your next big thing.
+          </p>
+          <img src="/images/about-story.png" alt="About Handy Pros" style={{ width: "100%", borderRadius: "12px", objectFit: "cover", height: "320px" }} />
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div className="section" style={{ paddingTop: "0" }}>
+        <h2 className="section-title">FAQ</h2>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          {faqs.map((f, i) => (
+            <div className="faq-item" key={i}>
+              <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                {f.q}
+                <span className={`faq-icon ${openFaq === i ? "open" : ""}`}>⌄</span>
+              </button>
+              <div className={`faq-answer ${openFaq === i ? "open" : ""}`}>{f.a}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <Footer setPage={setPage} />
     </div>
   );
 }
