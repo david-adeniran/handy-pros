@@ -117,21 +117,20 @@ function Footer({ setPage }) {
 // ─── HOME PAGE ────────────────────────────────────────────
 function HomePage({ setPage }) {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [partnerIndex, setPartnerIndex] = useState(0);
+  const itemsToShow = window.innerWidth <= 900 ? 2 : 3;
 
   const previousWorks = [
-    { img: "vibetalks.png", title: '"Voices of the Streets"', subtitle: "A Weekly Social Commentary Podcast" },
-    { img: "echo-chamber.png", title: '"Echoes in Silence"', subtitle: "Acoustic Sessions by Timi Jay" },
-    { img: "rehearsal-2.png", title: '"Unplugged Moments"', subtitle: "Acoustic Rehearsal Recordings" },
-    { img: "24hr-album.png", title: '"Live at Handy Pros"', subtitle: "Mini-Concert Sessions" },
+    { img: "vots.jpg", title: '"Voices of the Streets"', subtitle: "A Weekly Social Commentary Podcast" },
+    { img: "echoes.jpg", title: '"Echoes in Silence"', subtitle: "Acoustic Sessions by Timi Jay" },
+    { img: "unplugged.jpg", title: '"Unplugged Moments"', subtitle: "Acoustic Rehearsal Recordings" },
+    { img: "live.jpg", title: '"Live at Handy Pros"', subtitle: "Mini-Concert Sessions" },
   ];
 
   const services = [
-    { img: "podcast.png", icon: "ti-microphone", title: "Recording", desc: "Capture pristine sound and flawless instrumentals for music, voice-over, and podcasts." },
-    { img: "rehearsal.png", icon: "ti-music", title: "Rehearsal Room", desc: "Get in sync with your band or practice your set in acoustically optimised spaces." },
-    { img: "video.png", icon: "ti-video", title: "Video Editing Bay", desc: "Edit, color, and start sharing visuals with access to top tools for YouTube, and content creators." },
-    { img: "mixing.png", icon: "ti-microphone", title: "Recording", desc: "Capture pristine sound and flawless instrumentals for music, voice-over, and podcasts." },
-    { img: "rehearsal-2.png", icon: "ti-music", title: "Rehearsal Room", desc: "Get in sync with your band or practice your set in acoustically optimised spaces." },
-    { img: "creative-workspace.png", icon: "ti-video", title: "Video Editing Bay", desc: "Edit, color, and start sharing visuals with access to top tools for YouTube, and content creators." },
+    { img: "recording.png", icon: "ti-microphone", title: "Recording", desc: "Capture pristine sound and flawless instrumentals for music, voice-over, and podcasts." },
+    { img: "rehearsalroom.png", icon: "ti-music", title: "Rehearsal Room", desc: "Get in sync with your band or practice your set in acoustically optimised spaces." },
+    { img: "videoediting.png", icon: "ti-video", title: "Video Editing Bay", desc: "Edit, color, and start sharing visuals with access to top tools for YouTube, and content creators." },
   ];
 
   const partners = [
@@ -264,19 +263,20 @@ function HomePage({ setPage }) {
       </div>
 
       {/* CLIENTS/PARTNERS */}
-      <div className="section">
-        <h2 className="section-title">Few of Our Clients/Partners</h2>
-        <div className="partners-grid">
-          {partners.map((p) => (
-            <div className="partner-card" key={p}>
-              <img src={`/images/${p}`} alt={p} />
-            </div>
-          ))}
-        </div>
+      <div className="partners-carousel">
+  <button className="carousel-btn" onClick={() => setPartnerIndex(Math.max(0, partnerIndex - itemsToShow))}>‹</button>
+  <div className="partners-grid">
+    {partners.slice(partnerIndex, partnerIndex + itemsToShow).map((p) => (
+      <div className="partner-card" key={p}>
+        <img src={`/images/${p}`} alt={p} />
       </div>
+    ))}
+  </div>
+  <button className="carousel-btn" onClick={() => setPartnerIndex(Math.min(partners.length - itemsToShow, partnerIndex + itemsToShow))}>›</button>
+</div>
 
       {/* TESTIMONIALS */}
-      <div className="section" style={{ paddingTop: "0" }}>
+      <div className="section" style={{ paddingTop: "100px" }}>
         <h2 className="section-title">What Our Clients Say</h2>
         <div className="testimonial-carousel">
           <button className="carousel-btn left" onClick={() => setActiveTestimonial((activeTestimonial - 1 + testimonials.length) % testimonials.length)}>‹</button>
@@ -294,21 +294,28 @@ function HomePage({ setPage }) {
 
       {/* OUR PROMISES */}
       <div className="section" style={{ paddingTop: "0" }}>
-        <div className="promises-grid">
-          <div className="promises-content">
-            <h2 className="section-title" style={{ textAlign: "left" }}>Our Promises</h2>
-            <p style={{ color: "var(--text-muted)", marginBottom: "24px", fontSize: "14px" }}>What We Stand For — Excellence. Every Step of the Way.</p>
-            <ul className="promises-list">
-              {promises.map((p, i) => (
-                <li key={i}><i className="ti ti-circle-check" style={{ color: "var(--red)", marginRight: "10px" }}></i>{p}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="promises-img">
-            <img src="/images/about-story.png" alt="Studio promises" />
-          </div>
-        </div>
+  <div className="promises-section" style={{ 
+    background: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('/images/promise-bg.jpg') center/cover no-repeat`,
+    padding: "60px 48px",
+    borderRadius: "16px"
+  }}>
+    <div className="promises-grid">
+      <div className="promises-content">
+        <h2 className="section-title" style={{ textAlign: "left" }}>Our Promises</h2>
+        <p style={{ color: "var(--text-muted)", marginBottom: "24px", fontSize: "14px" }}>What We Stand For — Excellence. Every Step of the Way.</p>
+        <ul className="promises-list">
+          {promises.map((p, i) => (
+            <li key={i}><i className="ti ti-circle-check" style={{ color: "var(--red)", marginRight: "10px" }}></i>{p}</li>
+          ))}
+        </ul>
       </div>
+      <div className="promises-img">
+        <img src="/images/promise-2.jpg" alt="Studio promises" className="promises-img-main" />
+        <img src="/images/promise-1.jpg" alt="Studio session" className="promises-img-overlay" />
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* STEP INTO SPOTLIGHT */}
       <div className="section" style={{ paddingTop: "0" }}>

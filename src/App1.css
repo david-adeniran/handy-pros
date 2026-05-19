@@ -1080,62 +1080,12 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .prev-works-grid {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--red) transparent;
-    grid-template-columns: unset;
-    margin-bottom: 24px;
-  }
-  .prev-works-grid::-webkit-scrollbar { height: 4px; }
-  .prev-works-grid::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
-  .prev-work-card { flex-shrink: 0; width: 260px; }
-
-  .services-grid {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--red) transparent;
-    grid-template-columns: unset;
-  }
-  .services-grid::-webkit-scrollbar { height: 4px; }
-  .services-grid::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
-  .service-card { flex-shrink: 0; width: 260px; }
-
-  .portfolio-grid {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--red) transparent;
-    grid-template-columns: unset;
-  }
-  .portfolio-grid::-webkit-scrollbar { height: 4px; }
-  .portfolio-grid::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
-  .portfolio-card { flex-shrink: 0; width: 260px; }
-
-  .partners-carousel { display: block; }
-  .partners-grid {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--red) transparent;
-    grid-template-columns: unset;
-  }
-  .partners-grid::-webkit-scrollbar { height: 4px; }
-  .partners-grid::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
-  .partner-card { flex-shrink: 0; width: 140px; height: 80px; padding: 12px; }
-  .partner-card img { height: 45px; }
-  .carousel-btn { display: none; }
-
+  .prev-works-grid { grid-template-columns: 1fr; }
+  .partners-carousel { flex-direction: row; align-items: center; }
+  .partners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .partner-card { height: 80px; padding: 12px; }
+  .partner-card img { height: 50px; }
+  .carousel-btn { width: 28px; height: 28px; font-size: 14px; }
   .promises-grid { grid-template-columns: 1fr; }
   .spotlight-grid { grid-template-columns: 1fr; }
   .home-about-grid { grid-template-columns: 1fr; }
