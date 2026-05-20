@@ -31,7 +31,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 16px 48px;
-  background: rgba(10,10,10,0.92);
+  background: transparent;
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -1078,7 +1078,7 @@ footer {
   gap: 60px;
   align-items: center;
 }
-
+.hero { min-height: 70vh; }
 @media (max-width: 900px) {
   .prev-works-grid {
     display: flex;
@@ -1134,11 +1134,12 @@ footer {
   .partners-grid::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; }
   .partner-card { flex-shrink: 0; width: 140px; height: 80px; padding: 12px; }
   .partner-card img { height: 45px; }
-  .carousel-btn { display: none; }
+  .partners-carousel .carousel-btn { display: none; }
 
   .promises-grid { grid-template-columns: 1fr; }
   .spotlight-grid { grid-template-columns: 1fr; }
   .home-about-grid { grid-template-columns: 1fr; }
   .spotlight-features { grid-template-columns: 1fr; }
   .testimonial-carousel { flex-direction: row; }
+  .promises-img { display: none; }
 }

@@ -73,7 +73,7 @@ function Footer({ setPage }) {
       <div className="footer-grid">
         <div className="footer-logo">
           <img src="/images/Logo.png" alt="Handy Pros Studio" />
-          <p>There are many variations of passages of lorem ipsum available, but the majority suffered.</p>
+          <p>Empowering creators by providing accessible, professional-grade studio spaces where ideas can thrive.</p>
           <div className="footer-socials">
             <a href="#">𝕏</a><a href="#">f</a><a href="#">P</a><a href="#">📷</a>
           </div>
@@ -90,9 +90,9 @@ function Footer({ setPage }) {
         <div className="footer-col">
           <h4>Contact</h4>
           <ul className="footer-contact">
-            <li>📞 666 888 0000</li>
-            <li>✉️ needhelp@company.com</li>
-            <li>📍 80 Broklyn Golden Street Line, New York, USA</li>
+            <li>📞 07073405110</li>
+            <li>✉️ info@handypros.com</li>
+          <li>📍 Floor 8B, Sapetro Tower, <br /> 1 Adeola Odeku Street, Victoria Island, Lagos</li>
           </ul>
         </div>
         <div className="footer-col">
@@ -104,7 +104,7 @@ function Footer({ setPage }) {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© All Copyright 2025 by <a href="#">HandyPros Studio</a></p>
+        <p>© All Copyright 2026 by <a href="#">HandyPros Studio</a></p>
         <div className="footer-bottom-links">
           <a href="#">Terms of Use</a>
           <a href="#">Privacy Policy</a>
@@ -118,7 +118,6 @@ function Footer({ setPage }) {
 function HomePage({ setPage }) {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [partnerIndex, setPartnerIndex] = useState(0);
-  const itemsToShow = window.innerWidth <= 900 ? 2 : 3;
 
   const previousWorks = [
     { img: "vots.jpg", title: '"Voices of the Streets"', subtitle: "A Weekly Social Commentary Podcast" },
@@ -138,6 +137,9 @@ function HomePage({ setPage }) {
     "logo-mavin.png", "logo-trace.png", "logo-chocolatecity.png",
     "logo-netflix.png", "logo-applemusic.png", "logo-youtube.png",
   ];
+
+  const isMobile = window.innerWidth <= 900;
+  const itemsToShow = isMobile ? partners.length : 3;
 
   const testimonials = [
     { stars: "★★★★★", text: "I recorded my debut EP here and the experience was seamless. The sound engineers really knew their stuff and made me feel at home. The energy was just right.", name: "–Dami K.", role: "Afrobeat Artist" },
@@ -174,7 +176,11 @@ function HomePage({ setPage }) {
     <div>
       {/* HERO */}
       <div className="hero">
-        <div className="hero-bg" />
+        <div className="hero-bg" style={{ 
+    background: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('/images/mic-bg.jpg') center/cover no-repeat`,
+    padding: "60px 48px",
+    borderRadius: "16px"
+  }} />
         <div className="hero-content">
           <h1>Handy Pros Studio</h1>
           <p>Podcasting, Music, Video, and Rehearsals</p>
@@ -186,7 +192,7 @@ function HomePage({ setPage }) {
       </div>
 
       {/* PREVIOUS WORKS */}
-      <div className="section">
+      <div className="section" style={{ paddingTop: "0", marginTop: "25px" }}>
         <h2 className="section-title">Our Previous Works</h2>
         <div className="prev-works-grid">
           {previousWorks.map((w) => (
@@ -205,11 +211,11 @@ function HomePage({ setPage }) {
       </div>
 
       {/* AUDIO LINKS */}
-      <div className="section" style={{ paddingTop: "0" }}>
+      <div className="section" style={{ paddingTop: "0", marginTop: "-60px" }}>
         <h2 className="section-title">Audio Links</h2>
         <div className="audio-player">
           <div className="audio-player-header">
-            <img src="/images/podcast.png" alt="Podcast cover" className="audio-cover" />
+            <img src="/images/spotify-image.png" alt="Podcast cover" className="audio-cover" />
             <div className="audio-info">
               <h3>Recently Recorded at Handy Pros</h3>
               <span className="audio-preview-tag">Preview</span>
@@ -236,8 +242,8 @@ function HomePage({ setPage }) {
       </div>
 
       {/* OUR SERVICES */}
-      <div className="section" style={{ paddingTop: "0" }}>
-        <h2 className="section-title">Our Services</h2>
+      <div className="section" style={{ paddingTop: "0", marginTop: "-40px" }}>
+        <h2 className="section-title" style={{ marginBottom: "20px"}}>Our Services</h2>
         <div className="services-grid">
           {services.map((s, i) => (
             <div className="service-card" key={i}>
@@ -253,8 +259,12 @@ function HomePage({ setPage }) {
       </div>
 
       {/* CREATIVE JOURNEY CTA */}
-      <div className="cta-banner">
-        <div className="cta-banner-bg" />
+      <div className="cta-banner" style={{ marginTop: "-80px" }}>
+        <div className="cta-banner-bg" style={{ 
+    background: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('/images/creative-journey.jpg') center/cover no-repeat`,
+    padding: "30px 48px",
+    borderRadius: "16px"
+  }}/>
         <div className="cta-banner-content">
           <h2>Your Creative Journey Starts Here</h2>
           <p>World-class spaces for music, podcasts, videos, and rehearsals — built to elevate your creativity.</p>
@@ -263,7 +273,9 @@ function HomePage({ setPage }) {
       </div>
 
       {/* CLIENTS/PARTNERS */}
-      <div className="partners-carousel">
+      <h2 className="section-title" style={{ marginTop: "40px", marginBottom: "20px" }}>Few of Our Clients/Partners</h2>
+      <img src="/images/flick.png" alt="" style={{ width: "330px", maxWidth: "50%", display: "block", margin: "-28px auto 16px 47%" }} />
+      <div className="partners-carousel" style={{ paddingTop: "20px" }}>
   <button className="carousel-btn" onClick={() => setPartnerIndex(Math.max(0, partnerIndex - itemsToShow))}>‹</button>
   <div className="partners-grid">
     {partners.slice(partnerIndex, partnerIndex + itemsToShow).map((p) => (
@@ -278,6 +290,7 @@ function HomePage({ setPage }) {
       {/* TESTIMONIALS */}
       <div className="section" style={{ paddingTop: "100px" }}>
         <h2 className="section-title">What Our Clients Say</h2>
+        <img src="/images/flick.png" alt="" style={{ width: "330px", maxWidth: "50%", display: "block", margin: "-50px auto 16px 42%" }} />
         <div className="testimonial-carousel">
           <button className="carousel-btn left" onClick={() => setActiveTestimonial((activeTestimonial - 1 + testimonials.length) % testimonials.length)}>‹</button>
           <div className="testimonial-card" style={{ maxWidth: "700px", margin: "0 auto" }}>
@@ -320,7 +333,7 @@ function HomePage({ setPage }) {
       {/* STEP INTO SPOTLIGHT */}
       <div className="section" style={{ paddingTop: "0" }}>
         <div className="spotlight-grid">
-          <img src="/images/services-hours.png" alt="Studio spotlight" className="spotlight-img" />
+          <img src="/images/spotlight.jpg" alt="Studio spotlight" className="spotlight-img" />
           <div className="spotlight-content">
             <h2>Step Into Your Spotlight – Where Every Session Sparks Creativity.</h2>
             <p style={{ color: "var(--text-muted)", margin: "16px 0 24px", fontSize: "15px" }}>Whether you're recording a podcast, mixing your next hit, or producing a video — our studios are built to capture your voice, and your story.</p>
@@ -344,11 +357,13 @@ function HomePage({ setPage }) {
       {/* ABOUT */}
       <div className="section" style={{ paddingTop: "0" }}>
         <h2 className="section-title">About Handy Pros Studio</h2>
+        <img src="/images/flick.png" alt="" style={{ width: "330px", maxWidth: "60%", display: "block", margin: "-50px auto 16px 35%" }} />
+        <div className="testimonial-carousel"></div>
         <div className="home-about-grid">
           <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: "1.8" }}>
             Handy Pros is redefining access to professional creative spaces for a new generation of storytellers, artists, and creators. Our platform connects you with studio spaces that are built for those who imagine big. From the recording booth to the editing suite, every corner of Handy Pros is engineered to help you create — on your terms, at your pace. We're more than a studio. We're a creative community. We're the launchpad for your next big thing.
           </p>
-          <img src="/images/about-story.png" alt="About Handy Pros" style={{ width: "100%", borderRadius: "12px", objectFit: "cover", height: "320px" }} />
+                <img src="/images/about-blank.png" alt="About" className="home-about-img" />
         </div>
       </div>
 
@@ -388,7 +403,6 @@ function AboutPage({ setPage }) {
             <p>What started as a small idea between a group of creatives has now evolved into a vibrant hub for audio and visual storytellers. Handy Pros was founded with one goal in mind — to provide accessible, high-quality studio spaces for creators of all kinds.</p>
             <p>We saw the challenges artists faced: overpriced rentals, unreliable gear, and hard-to-book spaces. So we built something better — a one-stop studio platform designed around your creative needs.</p>
           </div>
-          <img src="/images/about-story.png" alt="Studio story" />
         </div>
 
         <div className="about-pillars">
@@ -418,12 +432,12 @@ function AboutPage({ setPage }) {
         <h2 className="section-title">What We Offer</h2>
         <div className="offer-grid">
           {[
-            { img: "podcast.png", icon: <Icons.Mic />, title: "Recording", desc: "Soundproofed and mic-ready. Just press record." },
-            { img: "rehearsal.png", icon: <Icons.Music />, title: "Rehearsal Room", desc: "Spacious, clean, and acoustically treated." },
-            { img: "video.png", icon: <Icons.Video />, title: "Video Recording & Editing Suites", desc: "From shoot to screen, all in one place." },
-            { img: "mixing.png", icon: <Icons.Radio />, title: "Podcasting Suite", desc: "Soundproofed and mic-ready. Just press record." },
-            { img: "clapperboard.png", icon: <Icons.Calendar />, title: "Flexible Booking", desc: "Book by the hour, day, or week without stress." },
-            { img: "creative-workspace.png", icon: <Icons.Wrench />, title: "On-site Support", desc: "Friendly engineers and team members ready to assist." },
+            { img: "recording.png", icon: <Icons.Mic />, title: "Recording", desc: "Soundproofed and mic-ready. Just press record." },
+            { img: "rehearsalroom.png", icon: <Icons.Music />, title: "Rehearsal Room", desc: "Spacious, clean, and acoustically treated." },
+            { img: "videoediting.png", icon: <Icons.Video />, title: "Video Recording & Editing Suites", desc: "From shoot to screen, all in one place." },
+            { img: "podcast-suite.png", icon: <Icons.Radio />, title: "Podcasting Suite", desc: "Soundproofed and mic-ready. Just press record." },
+            { img: "booking.png", icon: <Icons.Calendar />, title: "Flexible Booking", desc: "Book by the hour, day, or week without stress." },
+            { img: "engineer.png", icon: <Icons.Wrench />, title: "On-site Support", desc: "Friendly engineers and team members ready to assist." },
           ].map((item) => (
             <div className="offer-card" key={item.title}>
               <img src={`/images/${item.img}`} alt={item.title} />
@@ -471,12 +485,12 @@ function AboutPage({ setPage }) {
 // ─── SERVICES PAGE ────────────────────────────────────────
 function ServicesPage({ setPage }) {
   const services = [
-    { img: "podcast.png", icon: <Icons.Mic />, title: "Audio Recording", desc: "Capture pristine sound with professional-grade equipment in a fully-equipped audio booth." },
-    { img: "mixing.png", icon: <Icons.Music />, title: "Mixing & Mastering", desc: "Perfect your sound with expert-level tools for mixing and mastering in a seamless studio environment." },
-    { img: "creative-workspace.png", icon: <Icons.Radio />, title: "Podcast Studio Rental", desc: "Book a fully equipped podcast studio tailored for high-quality recording and streaming." },
-    { img: "rehearsal.png", icon: <Icons.Music />, title: "Rehearsal Studio", desc: "Practice in acoustically optimized spaces outfitted with premium instruments and gear." },
-    { img: "video.png", icon: <Icons.Video />, title: "Video Production & Editing", desc: "From shooting to post-production, create stunning visuals with top-tier equipment and editing suites." },
-    { img: "clapperboard.png", icon: <Icons.Wrench />, title: "Creative Workspace", desc: "A versatile and inspiring space designed to support creators, artists, and innovators at any level." },
+    { img: "recording.png", icon: <Icons.Mic />, title: "Audio Recording", desc: "Capture pristine sound with professional-grade equipment in a fully-equipped audio booth." },
+    { img: "music-producer.png", icon: <Icons.Music />, title: "Mixing & Mastering", desc: "Perfect your sound with expert-level tools for mixing and mastering in a seamless studio environment." },
+    { img: "dark-mic.png", icon: <Icons.Radio />, title: "Podcast Studio Rental", desc: "Book a fully equipped podcast studio tailored for high-quality recording and streaming." },
+    { img: "music-band.png", icon: <Icons.Music />, title: "Rehearsal Studio", desc: "Practice in acoustically optimized spaces outfitted with premium instruments and gear." },
+    { img: "video-shoot.png", icon: <Icons.Video />, title: "Video Production & Editing", desc: "From shooting to post-production, create stunning visuals with top-tier equipment and editing suites." },
+    { img: "laptop-table.png", icon: <Icons.Wrench />, title: "Creative Workspace", desc: "A versatile and inspiring space designed to support creators, artists, and innovators at any level." },
   ];
 
   const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
@@ -520,7 +534,7 @@ function ServicesPage({ setPage }) {
         </div>
 
         <div className="service-hours">
-          <img src="/images/services-hours.png" alt="Studio hours" />
+          <img src="/images/mixing-set.png" alt="Studio hours" />
           <div className="hours-content">
             <h2>Services Hours</h2>
             <p>Flexible hours for every creative flow.</p>
@@ -626,7 +640,7 @@ function PortfolioPage({ setPage }) {
         <h2 className="section-title">Audio Links</h2>
         <div className="audio-player">
           <div className="audio-player-header">
-            <img src="/images/podcast.png" alt="Podcast cover" className="audio-cover" />
+            <img src="/images/spotify-image.png" alt="Podcast cover" className="audio-cover" />
             <div className="audio-info">
               <h3>Recently Recorded at Handy Pros</h3>
               <span className="audio-preview-tag">Preview</span>
@@ -705,15 +719,15 @@ function ContactPage({ setPage }) {
           <div className="contact-info">
             <div className="contact-info-item">
               <span className="contact-info-icon">📍</span>
-              <div><strong>Studio Location:</strong><span>123 Sound Lane, Lekki Phase 1, Lagos, Nigeria</span></div>
+              <div><strong>Studio Location:</strong><span>Floor 8B, Sapetro Towers <br/> 1 Adeola Odeku Street, Victoria Island, Lagosc</span></div>
             </div>
             <div className="contact-info-item">
               <span className="contact-info-icon">📞</span>
-              <div><strong>Phone:</strong><span>+234 800 123 4567</span></div>
+              <div><strong>Phone:</strong><span>+234 707 340 5110</span></div>
             </div>
             <div className="contact-info-item">
               <span className="contact-info-icon">✉️</span>
-              <div><strong>Email:</strong><span>contact@handyprosstudio.com</span></div>
+              <div><strong>Email:</strong><span>info@handypros.com</span></div>
             </div>
             <div className="working-hours">
               <h3>Working hours:</h3>
