@@ -195,7 +195,7 @@ body {
 /* HERO */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,6 +206,8 @@ body {
   inset: 0;
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.5)),
     url('/images/hero-bg.png') center/cover no-repeat;
+    
+
 }
 .hero-content {
   position: relative;
