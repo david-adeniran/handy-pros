@@ -15,6 +15,9 @@ const Icons = {
   MousePointer: () => <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/></svg>,
   Users: () => <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
   Play: () => <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>,
+  Phone: () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>,
+  MapPin: () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>,
+  Mail: () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
 };
 
 // ─── NAVBAR ───────────────────────────────────────────────
@@ -25,7 +28,7 @@ function Navbar({ activePage, setPage }) {
   return (
     <>
       <nav className="nav">
-        <div className="nav-logo">
+        <div className="nav-logo" onClick={() => setPage("home")} style={{ cursor: "pointer" }}>
           <img src="/images/Logo.png" alt="Handy Pros Studio" />
         </div>
         <ul className="nav-links">
@@ -75,7 +78,13 @@ function Footer({ setPage }) {
           <img src="/images/Logo.png" alt="Handy Pros Studio" />
           <p>Empowering creators by providing accessible, professional-grade studio spaces where ideas can thrive.</p>
           <div className="footer-socials">
-            <a href="#">𝕏</a><a href="#">f</a><a href="#">P</a><a href="#">📷</a>
+            <a href="https://www.instagram.com/handypros.studio/" target="_blank" rel="noreferrer"><img src="/images/instagram.png" alt="Instagram" /></a>
+            <a href="https://www.facebook.com/handypros.studio/" target="_blank" rel="noreferrer"><img src="/images/facebook.png" alt="Facebook" /></a>
+            <a href="https://twitter.com/handyprosstudio"target="_blank" rel="noreferrer"><img src="/images/x.png" alt="X" /></a>
+            <a href="https://www.youtube.com/channel/UC9X5Q8q7v5v5v5v5v5v5v5v5" target="_blank" rel="noreferrer"><img src="/images/youtube.png" alt="YouTube" /></a>
+            <a href="https://www.tiktok.com/@handypros.studio" target="_blank" rel="noreferrer"><img src="/images/tiktok.png" alt="TikTok" /></a>
+            <a href="https://www.linkedin.com/company/handypros-studio" target="_blank" rel="noreferrer"><img src="/images/linkedin.png" alt="LinkedIn" /></a>
+            <a href="https://www.snapchat.com/handypros.studio/" target="_blank" rel="noreferrer"><img src="/images/snapchat.png" alt="Snapchat" /></a>
           </div>
         </div>
         <div className="footer-col">
@@ -90,9 +99,9 @@ function Footer({ setPage }) {
         <div className="footer-col">
           <h4>Contact</h4>
           <ul className="footer-contact">
-            <li>📞 07073405110</li>
-            <li>✉️ info@handypros.com</li>
-          <li>📍 Floor 8B, Sapetro Tower, <br /> 1 Adeola Odeku Street, Victoria Island, Lagos</li>
+            <li><Icons.Phone /> 07073405110</li>
+            <li><Icons.Mail /> info@handypros.com</li>
+          <li><Icons.MapPin /> Floor 8B, Sapetro Tower, <br /> 1 Adeola Odeku Street, Victoria Island, Lagos</li>
           </ul>
         </div>
         <div className="footer-col">
@@ -259,12 +268,11 @@ function HomePage({ setPage }) {
       </div>
 
       {/* CREATIVE JOURNEY CTA */}
-      <div className="cta-banner" style={{ marginTop: "-80px" }}>
+      <div className="cta-banner" style={{ marginTop: "-80px", height: "300px" }}>
         <div className="cta-banner-bg" style={{ 
-    background: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('/images/creative-journey.jpg') center/cover no-repeat`,
-    padding: "30px 48px",
-    borderRadius: "16px"
-  }}/>
+  background: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/images/creative-journey.jpg') center no-repeat`,
+  backgroundSize: "100% auto"
+}}/>
         <div className="cta-banner-content">
           <h2>Your Creative Journey Starts Here</h2>
           <p>World-class spaces for music, podcasts, videos, and rehearsals — built to elevate your creativity.</p>
@@ -363,7 +371,6 @@ function HomePage({ setPage }) {
           <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: "1.8" }}>
             Handy Pros is redefining access to professional creative spaces for a new generation of storytellers, artists, and creators. Our platform connects you with studio spaces that are built for those who imagine big. From the recording booth to the editing suite, every corner of Handy Pros is engineered to help you create — on your terms, at your pace. We're more than a studio. We're a creative community. We're the launchpad for your next big thing.
           </p>
-                <img src="/images/about-blank.png" alt="About" className="home-about-img" />
         </div>
       </div>
 
@@ -391,9 +398,12 @@ function HomePage({ setPage }) {
 // ─── ABOUT PAGE ───────────────────────────────────────────
 function AboutPage({ setPage }) {
   return (
-    <div style={{ paddingTop: "73px" }}>
+    <div style={{ paddingTop: "73px", marginTop: "-73px"}}>
       <div className="page-banner">
-        <div className="page-banner-bg" />
+        <div className="page-banner-bg" style={{ 
+    background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/about-bg.jpg') center/cover no-repeat`,
+    padding: "60px 48px",
+    borderRadius: "16px" }} />
         <h1>Built for Creators. Powered by Passion.</h1>
       </div>
       <div className="section">
@@ -403,6 +413,7 @@ function AboutPage({ setPage }) {
             <p>What started as a small idea between a group of creatives has now evolved into a vibrant hub for audio and visual storytellers. Handy Pros was founded with one goal in mind — to provide accessible, high-quality studio spaces for creators of all kinds.</p>
             <p>We saw the challenges artists faced: overpriced rentals, unreliable gear, and hard-to-book spaces. So we built something better — a one-stop studio platform designed around your creative needs.</p>
           </div>
+          <img src="/images/studio-overlay.png" alt="Our story" />
         </div>
 
         <div className="about-pillars">
@@ -451,7 +462,10 @@ function AboutPage({ setPage }) {
       </div>
 
       <div className="cta-banner">
-        <div className="cta-banner-bg" />
+        <div className="cta-banner-bg" style={{ 
+    background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/podcast-suite.png') center/cover no-repeat`,
+    padding: "30px 48px",
+    borderRadius: "16px"}}/>
         <div className="cta-banner-content">
           <h2>Ready to take your project to the next level?</h2>
           <p>Book a studio session today and create without limits.</p>
@@ -496,9 +510,12 @@ function ServicesPage({ setPage }) {
   const days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
   return (
-    <div style={{ paddingTop: "73px" }}>
+    <div style={{ paddingTop: "73px", marginTop: "-73px"}}>
       <div className="page-banner">
-        <div className="page-banner-bg" />
+        <div className="page-banner-bg"  style={{ 
+    background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/bg-set.png') center/cover no-repeat`,
+    padding: "60px 48px",
+    borderRadius: "16px" }}/>
         <h1>What We Offer</h1>
       </div>
 
@@ -541,7 +558,7 @@ function ServicesPage({ setPage }) {
             <div className="hours-grid">
               {days.map((d) => (
                 <div className="hours-item" key={d}>
-                  <div className="day-icon">📅</div>
+                  <div className="day-icon"><Icons.Calendar /></div>
                   <strong>{d}</strong>
                   <span>9AM - 8PM</span>
                 </div>
@@ -554,7 +571,10 @@ function ServicesPage({ setPage }) {
       </div>
 
       <div className="cta-banner">
-        <div className="cta-banner-bg" />
+        <div className="cta-banner-bg" style={{ 
+        background: `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/images/photo-setup.png') center no-repeat`,
+        backgroundSize: "100% auto"
+        }}/>
         <div className="cta-banner-content">
           <h2>Are you prepared to elevate your project to new heights?</h2>
           <p>Book a studio session today and create without limits.</p>
@@ -592,14 +612,17 @@ function PortfolioPage({ setPage }) {
   ];
 
   const galleryImages = [
-    "vibetalks.png", "mixing-2.png", "mixing.png",
-    "rehearsal-2.png", "rehearsal.png", "podcast.png",
+    "ig-gallery1.png", "ig-gallery2.png", "midnight-verse.png",
+    "scene48.png", "rehearsal-2.png", "headphone.png",
   ];
 
   return (
-    <div style={{ paddingTop: "73px" }}>
+    <div style={{ paddingTop: "73px", marginTop: "-73px"}}>
       <div className="page-banner">
-        <div className="page-banner-bg" />
+        <div className="page-banner-bg"  style={{ 
+    background: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/portfolio-bg.png') center 20%/cover no-repeat`,
+    padding: "60px 48px",
+    borderRadius: "16px" }} />
         <h1>Portfolio</h1>
       </div>
 
@@ -718,15 +741,15 @@ function ContactPage({ setPage }) {
 
           <div className="contact-info">
             <div className="contact-info-item">
-              <span className="contact-info-icon">📍</span>
-              <div><strong>Studio Location:</strong><span>Floor 8B, Sapetro Towers <br/> 1 Adeola Odeku Street, Victoria Island, Lagosc</span></div>
+              <span className="contact-info-icon"><Icons.MapPin /></span>
+              <div><strong>Studio Location:</strong><span>Floor 8B, Sapetro Towers <br/> 1 Adeola Odeku Street, Victoria Island, Lagos</span></div>
             </div>
             <div className="contact-info-item">
-              <span className="contact-info-icon">📞</span>
+              <span className="contact-info-icon"><Icons.Phone /></span>
               <div><strong>Phone:</strong><span>+234 707 340 5110</span></div>
             </div>
             <div className="contact-info-item">
-              <span className="contact-info-icon">✉️</span>
+              <span className="contact-info-icon"><Icons.Mail /></span>
               <div><strong>Email:</strong><span>info@handypros.com</span></div>
             </div>
             <div className="working-hours">
