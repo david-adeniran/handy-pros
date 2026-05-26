@@ -85,7 +85,7 @@ function Footer({ setPage }) {
             <a href="https://www.tiktok.com/@handypros.studio" target="_blank" rel="noreferrer"><img src="/images/tiktok.png" alt="TikTok" /></a>
             <a href="https://www.linkedin.com/company/handypros-studio" target="_blank" rel="noreferrer"><img src="/images/linkedin.png" alt="LinkedIn" /></a>
             <a href="https://www.snapchat.com/handypros.studio/" target="_blank" rel="noreferrer"><img src="/images/snapchat.png" alt="Snapchat" /></a>
-          </div>
+          </div> 
         </div>
         <div className="footer-col">
           <h4>Explore</h4>
