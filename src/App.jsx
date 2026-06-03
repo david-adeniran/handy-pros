@@ -81,10 +81,10 @@ function Footer({ setPage }) {
             <a href="https://www.instagram.com/handypros.studio/" target="_blank" rel="noreferrer"><img src="/images/instagram.png" alt="Instagram" /></a>
             <a href="https://www.facebook.com/handypros.studio/" target="_blank" rel="noreferrer"><img src="/images/facebook.png" alt="Facebook" /></a>
             <a href="https://twitter.com/handyprosstudio"target="_blank" rel="noreferrer"><img src="/images/x.png" alt="X" /></a>
-            <a href="https://www.youtube.com/channel/UC9X5Q8q7v5v5v5v5v5v5v5v5" target="_blank" rel="noreferrer"><img src="/images/youtube.png" alt="YouTube" /></a>
+            <a href="https://youtube.com/@handyprosstudios?si=sQSDBN54BoYuticL" target="_blank" rel="noreferrer"><img src="/images/youtube.png" alt="YouTube" /></a>
             <a href="https://www.tiktok.com/@handypros.studio" target="_blank" rel="noreferrer"><img src="/images/tiktok.png" alt="TikTok" /></a>
             <a href="https://www.linkedin.com/company/handypros-studio" target="_blank" rel="noreferrer"><img src="/images/linkedin.png" alt="LinkedIn" /></a>
-            <a href="https://www.snapchat.com/handypros.studio/" target="_blank" rel="noreferrer"><img src="/images/snapchat.png" alt="Snapchat" /></a>
+            <a href="https://snapchat.com/t/n45ntPj4" target="_blank" rel="noreferrer"><img src="/images/snapchat.png" alt="Snapchat" /></a>
           </div> 
         </div>
         <div className="footer-col">
@@ -128,15 +128,8 @@ function HomePage({ setPage }) {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [partnerIndex, setPartnerIndex] = useState(0);
 
-  const previousWorks = [
-    { img: "vots.jpg", title: '"Voices of the Streets"', subtitle: "A Weekly Social Commentary Podcast" },
-    { img: "echoes.jpg", title: '"Echoes in Silence"', subtitle: "Acoustic Sessions by Timi Jay" },
-    { img: "unplugged.jpg", title: '"Unplugged Moments"', subtitle: "Acoustic Rehearsal Recordings" },
-    { img: "live.jpg", title: '"Live at Handy Pros"', subtitle: "Mini-Concert Sessions" },
-  ];
-
   const services = [
-    { img: "recording.png", icon: "ti-microphone", title: "Recording", desc: "Capture pristine sound and flawless instrumentals for music, voice-over, and podcasts." },
+    { img: "recording.jpeg", icon: "ti-microphone", title: "Recording", desc: "Capture pristine sound and flawless instrumentals for music, voice-over, and podcasts." },
     { img: "rehearsalroom.png", icon: "ti-music", title: "Rehearsal Room", desc: "Get in sync with your band or practice your set in acoustically optimised spaces." },
     { img: "videoediting.png", icon: "ti-video", title: "Video Editing Bay", desc: "Edit, color, and start sharing visuals with access to top tools for YouTube, and content creators." },
   ];
@@ -200,41 +193,41 @@ function HomePage({ setPage }) {
         </div>
       </div>
 
-      {/* PREVIOUS WORKS */}
-      <div className="section" style={{ paddingTop: "0", marginTop: "25px" }}>
-        <h2 className="section-title">Our Previous Works</h2>
-        <div className="prev-works-grid">
-          {previousWorks.map((w) => (
-            <div className="prev-work-card" key={w.title}>
-              <div className="prev-work-img">
-                <img src={`/images/${w.img}`} alt={w.title} />
-                <div className="play-overlay"><button className="play-btn">▶</button></div>
-              </div>
-              <div className="prev-work-body">
-                <h4>{w.title}</h4>
-                <p>{w.subtitle}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+     {/* VIDEO SECTION */}
+<div className="section">
+  <h2 className="section-title">The Studio Experience</h2>
+  <div className="video-container" style={{display: "flex", justifyContent: "center"}}>
+    <iframe 
+      src="https://www.youtube.com/embed/xxBOP78F28o"
+      width="60%"
+      height="350px"
+      allowFullScreen
+      style={{ borderRadius: "12px", border: "none" }}
+    />
+  </div>
+</div>
+      
 
       {/* AUDIO LINKS */}
       <div className="section" style={{ paddingTop: "0", marginTop: "-60px" }}>
         <h2 className="section-title">Audio Links</h2>
         <div className="audio-player">
-          <div className="audio-player-header">
-            <img src="/images/spotify-image.png" alt="Podcast cover" className="audio-cover" />
-            <div className="audio-info">
-              <h3>Recently Recorded at Handy Pros</h3>
-              <span className="audio-preview-tag">Preview</span>
-              <p>⊕ Save on Spotify</p>
-            </div>
-            <div className="audio-controls">
-              <span>⏮</span><span>⏭</span><span>•••</span>
-              <button className="play-btn">▶</button>
-            </div>
-          </div>
+        <div className="audio-player-header">
+  <div className="audio-left">
+    <img src="/images/spotify-image.png" alt="Spotify cover" className="audio-cover" />
+    <p className="audio-save">⊕ Save on Spotify</p>
+  </div>
+  <div className="audio-info">
+    <h3>Recently Recorded at Handy Pros</h3>
+    <div className="audio-bottom-row">
+      <span className="audio-preview-tag">Preview</span>
+      <div className="audio-controls">
+        <span>⏮</span><span>⏭</span><span>•••</span>
+        <button className="play-btn">▶</button>
+      </div>
+    </div>
+  </div>
+</div>
           <div className="track-list">
             {tracks.map((t) => (
               <div className="track-item" key={t.num}>
@@ -341,7 +334,7 @@ function HomePage({ setPage }) {
       {/* STEP INTO SPOTLIGHT */}
       <div className="section" style={{ paddingTop: "0" }}>
         <div className="spotlight-grid">
-          <img src="/images/spotlight.jpg" alt="Studio spotlight" className="spotlight-img" />
+          <img src="/images/spotlight-step.jpeg" alt="Studio spotlight" className="spotlight-img" />
           <div className="spotlight-content">
             <h2>Step Into Your Spotlight – Where Every Session Sparks Creativity.</h2>
             <p style={{ color: "var(--text-muted)", margin: "16px 0 24px", fontSize: "15px" }}>Whether you're recording a podcast, mixing your next hit, or producing a video — our studios are built to capture your voice, and your story.</p>
@@ -443,12 +436,12 @@ function AboutPage({ setPage }) {
         <h2 className="section-title">What We Offer</h2>
         <div className="offer-grid">
           {[
-            { img: "recording.png", icon: <Icons.Mic />, title: "Recording", desc: "Soundproofed and mic-ready. Just press record." },
-            { img: "rehearsalroom.png", icon: <Icons.Music />, title: "Rehearsal Room", desc: "Spacious, clean, and acoustically treated." },
+            { img: "recordingee.jpeg", icon: <Icons.Mic />, title: "Recording", desc: "Soundproofed and mic-ready. Just press record." },
+            { img: "spotlight-step.jpeg", icon: <Icons.Music />, title: "Rehearsal Room", desc: "Spacious, clean, and acoustically treated." },
             { img: "videoediting.png", icon: <Icons.Video />, title: "Video Recording & Editing Suites", desc: "From shoot to screen, all in one place." },
-            { img: "podcast-suite.png", icon: <Icons.Radio />, title: "Podcasting Suite", desc: "Soundproofed and mic-ready. Just press record." },
+            { img: "podcast-seg.jpeg", icon: <Icons.Radio />, title: "Podcasting Suite", desc: "Soundproofed and mic-ready. Just press record." },
             { img: "booking.png", icon: <Icons.Calendar />, title: "Flexible Booking", desc: "Book by the hour, day, or week without stress." },
-            { img: "engineer.png", icon: <Icons.Wrench />, title: "On-site Support", desc: "Friendly engineers and team members ready to assist." },
+            { img: "seminar.jpeg", icon: <Icons.Wrench />, title: "On-site Support", desc: "Friendly engineers and team members ready to assist." },
           ].map((item) => (
             <div className="offer-card" key={item.title}>
               <img src={`/images/${item.img}`} alt={item.title} />
@@ -499,11 +492,11 @@ function AboutPage({ setPage }) {
 // ─── SERVICES PAGE ────────────────────────────────────────
 function ServicesPage({ setPage }) {
   const services = [
-    { img: "recording.png", icon: <Icons.Mic />, title: "Audio Recording", desc: "Capture pristine sound with professional-grade equipment in a fully-equipped audio booth." },
+    { img: "recording.jpeg", icon: <Icons.Mic />, title: "Audio Recording", desc: "Capture pristine sound with professional-grade equipment in a fully-equipped audio booth." },
     { img: "music-producer.png", icon: <Icons.Music />, title: "Mixing & Mastering", desc: "Perfect your sound with expert-level tools for mixing and mastering in a seamless studio environment." },
-    { img: "dark-mic.png", icon: <Icons.Radio />, title: "Podcast Studio Rental", desc: "Book a fully equipped podcast studio tailored for high-quality recording and streaming." },
+    { img: "podcast-seg.jpeg", icon: <Icons.Radio />, title: "Podcast Studio Rental", desc: "Book a fully equipped podcast studio tailored for high-quality recording and streaming." },
     { img: "music-band.png", icon: <Icons.Music />, title: "Rehearsal Studio", desc: "Practice in acoustically optimized spaces outfitted with premium instruments and gear." },
-    { img: "video-shoot.png", icon: <Icons.Video />, title: "Video Production & Editing", desc: "From shooting to post-production, create stunning visuals with top-tier equipment and editing suites." },
+    { img: "learning.png", icon: <Icons.Video />, title: "Video Production & Editing", desc: "From shooting to post-production, create stunning visuals with top-tier equipment and editing suites." },
     { img: "laptop-table.png", icon: <Icons.Wrench />, title: "Creative Workspace", desc: "A versatile and inspiring space designed to support creators, artists, and innovators at any level." },
   ];
 
@@ -612,8 +605,8 @@ function PortfolioPage({ setPage }) {
   ];
 
   const galleryImages = [
-    "ig-gallery1.png", "ig-gallery2.png", "midnight-verse.png",
-    "scene48.png", "rehearsal-2.png", "headphone.png",
+    "recording.jpeg", "spotlight-step.jpeg", "recordingee.jpeg",
+    "seminar.jpeg", "podcast-seg.jpeg", "headphone.png",
   ];
 
   return (
