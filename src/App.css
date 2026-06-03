@@ -195,7 +195,7 @@ body {
 /* HERO */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,6 +206,8 @@ body {
   inset: 0;
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.5)),
     url('/images/hero-bg.png') center/cover no-repeat;
+    
+
 }
 .hero-content {
   position: relative;
@@ -887,14 +889,22 @@ footer {
   .hamburger { display: flex; }
   .section { padding: 60px 24px; }
   .cta-banner { padding: 60px 24px; }
-  .about-story { grid-template-columns: 1fr; gap: 32px; }
+  .about-story { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url('/images/studio-overlay.png') center/cover no-repeat;
+  padding: 40px 24px;
+  border-radius: 12px;
+  text-align: center; }
+  .about-story img { display: none; }
   .about-pillars { grid-template-columns: 1fr; gap: 32px; }
   .offer-grid { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .steps-grid { grid-template-columns: 1fr; gap: 32px; }
   .service-hours { grid-template-columns: 1fr; }
-  .service-hours img { min-height: 220px; }
-  .hours-content { padding: 32px 24px; }
+  .service-hours img { min-height: 220px; display: none; }
+  .hours-content { background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url('/images/mixing-set.png') center/cover no-repeat;
+  border-radius: 12px;
+  padding: 40px 24px; }
   .contact-grid { grid-template-columns: 1fr; }
   .booking-row { grid-template-columns: 1fr; }
   .booking-radios { grid-template-columns: 1fr; }
