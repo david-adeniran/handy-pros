@@ -157,13 +157,6 @@ function HomePage({ setPage }) {
     "Whether it's a quick vocal take or a full video shoot, we adapt our space and support to accommodate your needs.",
   ];
 
-  const tracks = [
-    { num: 1, title: "Joeboy Vs. ODUMODUBLVCK (Body & Soul Podcast)", artist: "Joeboy - Body & Soul (Podcast)", duration: "47:23" },
-    { num: 2, title: "S2: EP3 - A Doze of Foza", artist: "Osikoya Speaks", duration: "1:10:53" },
-    { num: 3, title: "Episode 24: Detty December is coming!", artist: "I Moved Back Podcast", duration: "1:04:46" },
-    { num: 4, title: "Episode 22: Lagos has been hell for us lately!", artist: "I Moved Back Podcast", duration: "50:52" },
-  ];
-
   const faqs = [
     { q: "How do I book a session?", a: "You can easily book a session through our website by selecting your preferred service, date, and time. You'll receive a confirmation email once your booking is complete." },
     { q: "What are your payment options?", a: "We accept bank transfers, card payments, and popular mobile payment options. A deposit is required to confirm your booking." },
@@ -206,42 +199,6 @@ function HomePage({ setPage }) {
     />
   </div>
 </div>
-      
-
-      {/* AUDIO LINKS */}
-      <div className="section" style={{ paddingTop: "0", marginTop: "-60px" }}>
-        <h2 className="section-title">Audio Links</h2>
-        <div className="audio-player">
-        <div className="audio-player-header">
-  <div className="audio-left">
-    <img src="/images/spotify-image.png" alt="Spotify cover" className="audio-cover" />
-    <p className="audio-save">⊕ Save on Spotify</p>
-  </div>
-  <div className="audio-info">
-    <h3>Recently Recorded at Handy Pros</h3>
-    <div className="audio-bottom-row">
-      <span className="audio-preview-tag">Preview</span>
-      <div className="audio-controls">
-        <span>⏮</span><span>⏭</span><span>•••</span>
-        <button className="play-btn">▶</button>
-      </div>
-    </div>
-  </div>
-</div>
-          <div className="track-list">
-            {tracks.map((t) => (
-              <div className="track-item" key={t.num}>
-                <span className="track-num">{t.num}</span>
-                <div className="track-info">
-                  <strong>{t.title}</strong>
-                  <span>{t.artist}</span>
-                </div>
-                <span className="track-duration">{t.duration}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* OUR SERVICES */}
       <div className="section" style={{ paddingTop: "0", marginTop: "-40px" }}>
@@ -583,7 +540,7 @@ function ServicesPage({ setPage }) {
 function PortfolioPage({ setPage }) {
   const recentProjects = [
     { img: "mixing-2.png", title: "Urban Rhythm Sessions", subtitle: "Live Audio Mix" },
-    { img: "lagos-lens.png", title: "The Lagos Lens", subtitle: "Mini Documentary Series" },
+    { img: "podcasters.png", title: "The Lagos Lens", subtitle: "Mini Documentary Series" },
     { img: "midnight-verse.png", title: "Midnight Verse", subtitle: "Poetry Podcast Recording" },
     { img: "scene48.png", title: "Scene 48", subtitle: "Short Film Production" },
     { img: "rehearsal-2.png", title: "Rehearsal Room Chronicles", subtitle: "Band Crew Prep" },
@@ -597,16 +554,9 @@ function PortfolioPage({ setPage }) {
     { img: "soundscape.png", title: "SoundScape", subtitle: "Immersive Audio" },
   ];
 
-  const tracks = [
-    { num: 1, title: "Joeboy Vs. ODUMODUBLVCK (Body & Soul Podcast)", artist: "Joeboy - Body & Soul (Podcast)", duration: "47:23" },
-    { num: 2, title: "S2: EP3 - A Doze of Foza", artist: "Osikoya Speaks", duration: "1:10:53" },
-    { num: 3, title: "Episode 24: Detty December is coming!", artist: "I Moved Back Podcast", duration: "1:04:46" },
-    { num: 4, title: "Episode 22: Lagos has been hell for us lately!", artist: "I Moved Back Podcast", duration: "50:52" },
-  ];
-
   const galleryImages = [
     "recording.jpeg", "spotlight-step.jpeg", "recordingee.jpeg",
-    "seminar.jpeg", "podcast-seg.jpeg", "headphone.png",
+    "seminar.jpeg", "podcast-seg.jpeg", "podcasting.jpeg",
   ];
 
   return (
@@ -648,39 +598,6 @@ function PortfolioPage({ setPage }) {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Audio Links */}
-      <div className="section" style={{ paddingTop: "0" }}>
-        <h2 className="section-title">Audio Links</h2>
-        <div className="audio-player">
-          <div className="audio-player-header">
-            <img src="/images/spotify-image.png" alt="Podcast cover" className="audio-cover" />
-            <div className="audio-info">
-              <h3>Recently Recorded at Handy Pros</h3>
-              <span className="audio-preview-tag">Preview</span>
-              <p>⊕ Save on Spotify</p>
-            </div>
-            <div className="audio-controls">
-              <span>⏮</span>
-              <span>⏭</span>
-              <span>•••</span>
-              <button className="play-btn">▶</button>
-            </div>
-          </div>
-          <div className="track-list">
-            {tracks.map((t) => (
-              <div className="track-item" key={t.num}>
-                <span className="track-num">{t.num}</span>
-                <div className="track-info">
-                  <strong>{t.title}</strong>
-                  <span>{t.artist}</span>
-                </div>
-                <span className="track-duration">{t.duration}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -852,7 +769,7 @@ function BookPage({ setPage }) {
             </div>
             <label className="form-checkbox"><input type="checkbox" /> Subscribe to Newsletter</label>
             <button className="btn-submit" style={{ marginTop: "8px" }}>Confirm & Book</button>
-            <p className="book-note">Need help with booking? Chat with our team or call us at +2340123456789</p>
+            <p className="book-note">Need help with booking? Chat with our team or call us at +2347073405110</p>
           </div>
         </div>
       </div>
